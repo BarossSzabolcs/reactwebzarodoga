@@ -7,6 +7,7 @@ import Login from './Login';
 import Logins from './Logins';
 import Rangok from './Rangok';
 
+
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem('token');
   return token ? children : <Navigate to="/login" />;

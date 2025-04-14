@@ -1,66 +1,123 @@
 /* Navbar alapstílusok */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #282c34;
-    color: white;
-    position: relative;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background-color: #1B3F1B; /* Sötét zöld háttér */
+  color: white;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Finomabb árnyék */
   
+  z-index: 1000; /* Előrébb a többi elemnél */
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar .logo:hover {
+  color: #BDC3C7; /* Szürke hover effektus a logónál */
+}
+
+.hamburger {
+  font-size: 30px;
+  background-color: transparent;
+  color: #fff; /* Fehér ikon szín */
+  border: none;
+  cursor: pointer;
+  display: none; /* Csak kis képernyőn látható */
+  transition: color 0.3s ease-in-out;
+}
+
+.hamburger:hover {
+  color: #BDC3C7; /* Szürke hover effektus */
+}
+
+.menu {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.link {
+  color: #fff; /* Fehér linkek */
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease-in-out;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.link:hover {
+  color: #BDC3C7; /* Szürke hover effektus a linkeknél */
+  background-color: rgba(255, 255, 255, 0.1); /* Halvány fehér háttér hoverre */
+}
+
+.link:active {
+  background-color: rgba(255, 255, 255, 0.2); /* Erősebb fehér háttér kattintásra */
+}
+
+.logoutButton {
+  padding: 8px 20px;
+  font-size: 16px;
+  background-color: #fff; /* Fehér gomb háttér */
+  color: #1B3F1B; /* Sötét zöld szöveg */
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.logoutButton:hover {
+  background-color: #BDC3C7; /* Szürke hover háttér */
+  color: #1B3F1B; /* Sötét zöld szöveg hoverre */
+}
+
+.logoutButton:active {
+  transform: scale(0.98); /* Kattintáskor enyhe összenyomódás */
+}
+
+/* Reszponzív stílusok */
+@media (max-width: 768px) {
   .hamburger {
-    font-size: 24px;
-    background-color: transparent;
-    color: white;
-    border: none;
-    cursor: pointer;
-    display: none; /* Csak kis képernyőn látható */
+    display: block; /* Kis képernyőn jelenjen meg */
   }
-  
+
   .menu {
-    display: flex;
+    display: none; /* Alapértelmezetten rejtve van */
+    flex-direction: column;
     gap: 20px;
-    align-items: center;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #1B3F1B; /* Sötét zöld háttér */
+    width: 100%;
+    padding: 20px;
+    z-index: 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    border-radius: 8px; /* Lekerekített sarkok a mobil menünek */
   }
-  
-  .link {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
+
+  .menu.open {
+    display: flex; /* Ha megnyitották, jelenjen meg */
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .logoutButton {
-    padding: 5px 15px;
-    font-size: 14px;
-    background-color: #1e88e5;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+
+  .menu .link {
+    font-size: 22px;
+    text-align: center;
+    padding: 12px;
+    width: 100%;
   }
-  
-  /* Reszponzív stílusok */
-  @media (max-width: 768px) {
-    .hamburger {
-      display: block; /* Kis képernyőn jelenjen meg */
-    }
-  
-    .menu {
-      display: none; /* Alapértelmezetten rejtve van */
-      flex-direction: column;
-      gap: 10px;
-      position: absolute;
-      top: 50px;
-      left: 0;
-      background-color: #282c34;
-      width: 100%;
-      padding: 10px;
-      z-index: 1;
-    }
-  
-    .menu.open {
-      display: flex; /* Ha megnyitották, jelenjen meg */
-    }
-  }
-  
+}
